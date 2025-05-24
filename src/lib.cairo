@@ -28,7 +28,7 @@ pub trait IERC20<TContractState> {
     );
 }
 
-#[derive(Clone, Serde, Drop)]
+#[derive(Clone, Serde, Drop, Copy)]
 pub struct UserState {
     amount: u256,
     date: u64,
@@ -103,6 +103,7 @@ mod TuneBridge {
                     user_address: user_address,
                 };
             }
+
             return UserState { amount: 0, date: 0, user_address: user_address };
         }
 
