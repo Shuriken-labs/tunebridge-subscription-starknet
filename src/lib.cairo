@@ -152,6 +152,7 @@ mod TuneBridge {
         }
 
         fn add_subscription_amount(ref self: ContractState, amount: u256) {
+            assert(self.is_owner(), 'unauthorized');
             self.subscription_tier.push(amount);
         }
 
